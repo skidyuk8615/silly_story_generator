@@ -11,6 +11,7 @@ export default function App() {
   const [zItem, setZItem] = useState("");
   const [showStory, setShowStory] = useState(false);
   const [name, setName] = useState("Bob");
+  const [displayName, setDisplayName] = useState("Bob");
   const [ukus, setUkus] = useState("us");
   const [temperature, setTemperature] = useState("");
   const [weight, setWeight] = useState("");
@@ -24,6 +25,7 @@ export default function App() {
     setYItem(randomValueFromArray(yItems));
     setZItem(randomValueFromArray(zItems));
     setShowStory(true);
+    setDisplayName(name);
     if (ukus === "uk") {
       setTemperature("34 centigrade");
       setWeight("21 stone");
@@ -58,7 +60,7 @@ export default function App() {
         <p>
           It was {temperature} outside, so {xItem} went for a walk. When they
           got to {yItem}, they stared in horror for a few moments, then {zItem}.
-          {name} saw the whole thing, but was not surprised — {xItem} weighs {weight},
+          {displayName} saw the whole thing, but was not surprised — {xItem} weighs {weight},
           and it was a hot day.
         </p>
       )}
