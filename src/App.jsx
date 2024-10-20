@@ -56,7 +56,7 @@ export default function App() {
       </div>
       {showStory && (
         <p>
-          It was {temparature} outside, so {xItem} went for a walk. When they
+          It was {temperature} outside, so {xItem} went for a walk. When they
           got to {yItem}, they stared in horror for a few moments, then {zItem}.
           {name} saw the whole thing, but was not surprised — {xItem} weighs {weight},
           and it was a hot day.
