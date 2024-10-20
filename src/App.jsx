@@ -49,9 +49,9 @@ export default function App() {
       </div>
       <div>
         <label htmlFor="us">US</label>
-        <input type="radio" value="us" checked={ukus === "us"} onChange={() => setUkus("us")} />
+        <input type="radio" value="us" checked={ukus === "us"} onChange={(e) => setUkus(e.target.value)} />
         <label htmlFor="uk">UK</label>
-        <input type="radio" value="uk" checked={ukus === "uk"} onChange={() => setUkus("uk")} />
+        <input type="radio" value="uk" checked={ukus === "uk"} onChange={(e) => setUkus(e.target.value)} />
       </div>
       <div>
         <button onClick={handleClick}>Generate random story</button>
