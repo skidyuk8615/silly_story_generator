@@ -10,6 +10,7 @@ export default function App() {
   const [yItem, setYItem] = useState("");
   const [zItem, setZItem] = useState("");
   const [showStory, setShowStory] = useState(false);
+  const [name, setName] = useState("Bob");
 
   const xItems = ["Willy the Goblin", "Big Daddy", "Father Christmas"];
   const yItems = ["the soup kitchen", "Disneyland", "the White House"];
@@ -27,7 +28,12 @@ export default function App() {
     <>
       <div>
         <label htmlFor="customname">Enter custom name:</label>
-        <input type="text" placeholder="" />
+        <input
+          type="text"
+          placeholder=""
+          value={name}
+          onChange={(e) => setName(e.target.value)}
+        />
       </div>
       <div>
         <label htmlFor="us">US</label>
@@ -42,7 +48,7 @@ export default function App() {
         <p>
           It was 94 fahrenheit outside, so {xItem} went for a walk. When they
           got to {yItem}, they stared in horror for a few moments, then {zItem}.
-          Bob saw the whole thing, but was not surprised — {xItem} weighs 300
+          {name} saw the whole thing, but was not surprised — {xItem} weighs 300
           pounds, and it was a hot day.
         </p>
       )}
