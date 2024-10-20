@@ -11,6 +11,9 @@ export default function App() {
   const [zItem, setZItem] = useState("");
   const [showStory, setShowStory] = useState(false);
   const [name, setName] = useState("Bob");
+  const [ukus, setUkus] = useState("us");
+  const [temperature, setTemperature] = useState("");
+  const [weight, setWeight] = useState("");
 
   const xItems = ["Willy the Goblin", "Big Daddy", "Father Christmas"];
   const yItems = ["the soup kitchen", "Disneyland", "the White House"];
@@ -21,9 +24,16 @@ export default function App() {
     setYItem(randomValueFromArray(yItems));
     setZItem(randomValueFromArray(zItems));
     setShowStory(true);
+    if (ukus === "uk") {
+      setTemperature("34 centigrade");
+      setWeight("21 stone");
+    } else {
+      setTemperature("94 fahrenheit");
+      setWeight("300 pounds");
+    }
   }
 
-  const ukus = "us";
+
   return (
     <>
       <div>
@@ -37,19 +47,19 @@ export default function App() {
       </div>
       <div>
         <label htmlFor="us">US</label>
-        <input type="radio" value="us" checked={ukus === "us"} />
+        <input type="radio" value="us" checked={ukus === "us"} onChange={() => setUkus("us")} />
         <label htmlFor="uk">UK</label>
-        <input type="radio" value="uk" checked={ukus === "uk"} />
+        <input type="radio" value="uk" checked={ukus === "uk"} onChange={() => setUkus("uk")} />
       </div>
       <div>
         <button onClick={handleClick}>Generate random story</button>
       </div>
       {showStory && (
         <p>
-          It was 94 fahrenheit outside, so {xItem} went for a walk. When they
+          It was {temparature} outside, so {xItem} went for a walk. When they
           got to {yItem}, they stared in horror for a few moments, then {zItem}.
-          {name} saw the whole thing, but was not surprised — {xItem} weighs 300
-          pounds, and it was a hot day.
+          {name} saw the whole thing, but was not surprised — {xItem} weighs {weight},
+          and it was a hot day.
         </p>
       )}
     </>
