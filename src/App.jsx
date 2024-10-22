@@ -10,7 +10,7 @@ export default function App() {
   const [yItem, setYItem] = useState("");
   const [zItem, setZItem] = useState("");
   const [showStory, setShowStory] = useState(false);
-  const [name, setName] = useState("Bob");
+  const [name, setName] = useState("");
   const [displayName, setDisplayName] = useState("Bob");
   const [ukus, setUkus] = useState("us");
   const [temperature, setTemperature] = useState("");
@@ -26,6 +26,13 @@ export default function App() {
     setZItem(randomValueFromArray(zItems));
     setShowStory(true);
     setDisplayName(name);
+
+    if (name === "") {
+      setDisplayName("Bob");
+    } else {
+      setDisplayName(name);
+    }
+
     if (ukus === "uk") {
       setTemperature("34 centigrade");
       setWeight("21 stone");
