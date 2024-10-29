@@ -9,12 +9,12 @@ export default function App() {
   const [xItem, setXItem] = useState("");
   const [yItem, setYItem] = useState("");
   const [zItem, setZItem] = useState("");
-  const [showStory, setShowStory] = useState(false);
   const [name, setName] = useState("");
   const [displayName, setDisplayName] = useState("Bob");
   const [ukus, setUkus] = useState("us");
   const [temperature, setTemperature] = useState("");
   const [weight, setWeight] = useState("");
+  const showStory = xItem && yItem && zItem;
 
   const xItems = ["Willy the Goblin", "Big Daddy", "Father Christmas"];
   const yItems = ["the soup kitchen", "Disneyland", "the White House"];
