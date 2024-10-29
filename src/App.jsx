@@ -9,12 +9,13 @@ export default function App() {
   const [xItem, setXItem] = useState("");
   const [yItem, setYItem] = useState("");
   const [zItem, setZItem] = useState("");
+  const showStory = xItem && yItem && zItem;
+
   const [name, setName] = useState("");
-  const [displayName, setDisplayName] = useState("Bob");
+
   const [ukus, setUkus] = useState("us");
   const [temperature, setTemperature] = useState("");
   const [weight, setWeight] = useState("");
-  const showStory = xItem && yItem && zItem;
 
   const xItems = ["Willy the Goblin", "Big Daddy", "Father Christmas"];
   const yItems = ["the soup kitchen", "Disneyland", "the White House"];
@@ -24,14 +25,9 @@ export default function App() {
     setXItem(randomValueFromArray(xItems));
     setYItem(randomValueFromArray(yItems));
     setZItem(randomValueFromArray(zItems));
-    setShowStory(true);
-    setDisplayName(name);
 
-    if (name === "") {
-      setDisplayName("Bob");
-    } else {
-      setDisplayName(name);
-    }
+    const inputName = document.getElementById("customName").value;
+    setName(inputName === "" ? "Bob" : inputName);
 
     if (ukus === "uk") {
       setTemperature("34 centigrade");
@@ -50,8 +46,7 @@ export default function App() {
         <input
           type="text"
           placeholder=""
-          value={name}
-          onChange={(e) => setName(e.target.value)}
+          id="customName"
         />
       </div>
       <div>
@@ -67,7 +62,7 @@ export default function App() {
         <p>
           It was {temperature} outside, so {xItem} went for a walk. When they
           got to {yItem}, they stared in horror for a few moments, then {zItem}.
-          {displayName} saw the whole thing, but was not surprised — {xItem} weighs {weight},
+          {name} saw the whole thing, but was not surprised — {xItem} weighs {weight},
           and it was a hot day.
         </p>
       )}
