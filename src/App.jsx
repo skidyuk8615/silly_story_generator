@@ -10,12 +10,10 @@ export default function App() {
   const [yItem, setYItem] = useState("");
   const [zItem, setZItem] = useState("");
   const showStory = xItem && yItem && zItem;
-
   const [name, setName] = useState("");
-
   const [ukus, setUkus] = useState("us");
-  const [temperature, setTemperature] = useState("");
-  const [weight, setWeight] = useState("");
+  const temperature = ukus === "uk" ? "34 centigrade" : "94 fahrenheit";
+  const weight = ukus === "uk" ? "21 stone" : "300 pounds";
 
   const xItems = ["Willy the Goblin", "Big Daddy", "Father Christmas"];
   const yItems = ["the soup kitchen", "Disneyland", "the White House"];
@@ -29,13 +27,8 @@ export default function App() {
     const inputName = document.getElementById("customName").value;
     setName(inputName === "" ? "Bob" : inputName);
 
-    if (ukus === "uk") {
-      setTemperature("34 centigrade");
-      setWeight("21 stone");
-    } else {
-      setTemperature("94 fahrenheit");
-      setWeight("300 pounds");
-    }
+    const selectedCountry = document.querySelector("input[name='countries']:checked").value;
+    selectedCountry === "uk" ? setUkus("uk") : setUkus("us");
   }
 
 
@@ -51,9 +44,9 @@ export default function App() {
       </div>
       <div>
         <label htmlFor="us">US</label>
-        <input type="radio" value="us" checked={ukus === "us"} onChange={(e) => setUkus(e.target.value)} />
+        <input type="radio" id="us" value="us" name="countries" defaultChecked />
         <label htmlFor="uk">UK</label>
-        <input type="radio" value="uk" checked={ukus === "uk"} onChange={(e) => setUkus(e.target.value)} />
+        <input type="radio" id="uk" value="uk" name="countries" />
       </div>
       <div>
         <button onClick={handleClick}>Generate random story</button>
